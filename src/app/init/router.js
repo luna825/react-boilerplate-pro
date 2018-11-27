@@ -1,14 +1,16 @@
 import React from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
-import map from 'lodash/map';
+import { BrowserRouter } from 'react-router-dom';
+import Authorized from 'utils/Authorized';
 import routes from '../config/routes';
+
+const { AuthorizedRoute } = Authorized;
 
 const Router = () => (
   <BrowserRouter>
     <div>
-      {map(routes, (route, index) => (
-        <Route key={index} {...route} />
-      ))}
+      {routes.map((route) =>
+        <AuthorizedRoute key={route.path} {...route} />,
+      )}
     </div>
   </BrowserRouter>
 );
