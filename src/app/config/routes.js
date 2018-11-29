@@ -11,7 +11,6 @@ const routes = [
   {
     path: '/authorize',
     exact: true,
-    authority: 'admin',
     redirectPath: '/',
     component: () => <User />,
   },
